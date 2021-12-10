@@ -51,7 +51,7 @@ public class LoadingScreenToMainGameController implements Initializable {
         translateHero.setNode(HeroImage);
         translateHero.setDuration(Duration.millis(500));
         translateHero.setCycleCount(TranslateTransition.INDEFINITE);
-        translateHero.setByY(105);
+        translateHero.setByY(-100);
         translateHero.setAutoReverse(true);
         translateHero.play();
 
@@ -60,7 +60,7 @@ public class LoadingScreenToMainGameController implements Initializable {
         translateOrc1.setDelay(Duration.millis(200));
         translateOrc1.setDuration(Duration.millis(500));
         translateOrc1.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc1.setByY(100);
+        translateOrc1.setByY(-100);
         translateOrc1.setAutoReverse(true);
         translateOrc1.play();
 
@@ -69,7 +69,7 @@ public class LoadingScreenToMainGameController implements Initializable {
         translateOrc2.setDelay(Duration.millis(400));
         translateOrc2.setDuration(Duration.millis(500));
         translateOrc2.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc2.setByY(100);
+        translateOrc2.setByY(-100);
         translateOrc2.setAutoReverse(true);
         translateOrc2.play();
 
@@ -78,7 +78,7 @@ public class LoadingScreenToMainGameController implements Initializable {
         translateOrc3.setDelay(Duration.millis(600));
         translateOrc3.setDuration(Duration.millis(500));
         translateOrc3.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc3.setByY(100);
+        translateOrc3.setByY(-100);
         translateOrc3.setAutoReverse(true);
         translateOrc3.play();
 
@@ -87,22 +87,19 @@ public class LoadingScreenToMainGameController implements Initializable {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
                 new KeyFrame(Duration.seconds(15), e-> {
-                    translateHero.pause();
-                    translateOrc1.pause();
-                    translateOrc2.pause();
-                    translateOrc3.pause();
-
                     // Next Screen Function --- Main Game
 
-                    try{
-                        playGame(event);
-                    }
-                    catch(Exception exception){
-                        exception.printStackTrace();
-                    }
-                }, new KeyValue(progress.progressProperty(), 1))
+
+                },
+                new KeyValue(progress.progressProperty(), 1))
         );
         timeline.setCycleCount(1);
         timeline.play();
+
+        try {
+            playGame(event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

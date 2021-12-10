@@ -8,8 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -34,15 +37,21 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
     @FXML
     private ProgressBar progress;
 
+    @FXML
+    private Label myLabel;
+
+    @FXML
+    private Button myButton;
+
     BigDecimal progressDouble = new BigDecimal(String.format("%2f", 0.0));
 
-//    public void loadGame(ActionEvent event) throws IOException {
-//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadGamePage.fxml")));
-//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+    public void loadGame(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadGamePage.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,7 +59,7 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
         translateHero.setNode(HeroImage);
         translateHero.setDuration(Duration.millis(500));
         translateHero.setCycleCount(TranslateTransition.INDEFINITE);
-        translateHero.setByY(105);
+        translateHero.setByY(-105);
         translateHero.setAutoReverse(true);
         translateHero.play();
 
@@ -59,7 +68,7 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
         translateOrc1.setDelay(Duration.millis(200));
         translateOrc1.setDuration(Duration.millis(500));
         translateOrc1.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc1.setByY(100);
+        translateOrc1.setByY(-100);
         translateOrc1.setAutoReverse(true);
         translateOrc1.play();
 
@@ -68,7 +77,7 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
         translateOrc2.setDelay(Duration.millis(400));
         translateOrc2.setDuration(Duration.millis(500));
         translateOrc2.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc2.setByY(100);
+        translateOrc2.setByY(-100);
         translateOrc2.setAutoReverse(true);
         translateOrc2.play();
 
@@ -77,28 +86,27 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
         translateOrc3.setDelay(Duration.millis(600));
         translateOrc3.setDuration(Duration.millis(500));
         translateOrc3.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc3.setByY(100);
+        translateOrc3.setByY(-100);
         translateOrc3.setAutoReverse(true);
         translateOrc3.play();
 
         progress.setStyle("-fx-accent: #ffcc00;");
 
+
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
                 new KeyFrame(Duration.seconds(10), e-> {
-                     // Next Screen Function --- Load Game Page
-                    try {
-                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadGamePage.fxml")));
-                        stage = new Stage();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
+                    progressDouble = new BigDecimal(String.format("%2f", progressDouble.doubleValue() + 1.0));
+                    if(progressDouble.doubleValue() == 1.0){
+                        myLabel.setText("Click Anywhere To Continue!!");
                     }
+
+
                 }, new KeyValue(progress.progressProperty(), 1))
         );
         timeline.setCycleCount(1);
         timeline.play();
+
+
     }
 }
