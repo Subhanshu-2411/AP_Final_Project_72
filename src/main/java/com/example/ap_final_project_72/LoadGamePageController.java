@@ -28,16 +28,18 @@ public class LoadGamePageController implements Initializable {
     private ImageView HeroImage, OrcImage1, OrcImage2, OrcImage3;
 
     @FXML
-    private Button game1Button, game2Button, game3Button;
+    private Button backButton, game1Button, game2Button, helpButton, game3Button, settingsButton;
 
-    public void Game1(ActionEvent event) throws IOException {
-
+    public void game1(){
+        System.out.println("Hello 1");
     }
-    public void Game2(ActionEvent event) throws IOException {
 
+    public void game2(){
+        System.out.println("Hello 2");
     }
-    public void Game3(ActionEvent event) throws IOException {
 
+    public void game3(){
+        System.out.println("Hello 3");
     }
 
     public void helpPage(ActionEvent event) throws IOException{
@@ -56,15 +58,21 @@ public class LoadGamePageController implements Initializable {
         stage.show();
     }
 
+    public void back(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         TranslateTransition translateHero = new TranslateTransition();
         translateHero.setNode(HeroImage);
         translateHero.setDuration(Duration.millis(500));
         translateHero.setCycleCount(TranslateTransition.INDEFINITE);
-        translateHero.setByY(-105);
+        translateHero.setByY(-100);
         translateHero.setAutoReverse(true);
         translateHero.play();
 
@@ -94,14 +102,5 @@ public class LoadGamePageController implements Initializable {
         translateOrc3.setByY(-100);
         translateOrc3.setAutoReverse(true);
         translateOrc3.play();
-
-//        FadeTransition fade = new FadeTransition();
-//        fade.setNode(playButton);
-//        fade.setDuration(Duration.millis(2500));
-//        fade.setCycleCount(1);
-//        fade.setInterpolator(Interpolator.LINEAR);
-//        fade.setFromValue(0);   // 1-opaque 0-transparent
-//        fade.setToValue(1);
-//        fade.play();
     }
 }

@@ -29,7 +29,7 @@ public class MainMenuController implements Initializable {
     private ImageView HeroImage, OrcImage1, OrcImage2, OrcImage3;
 
     @FXML
-    private Button backButton, playButton, loadButton, helpButton, exitGameButton, settingsButton;
+    private Button playButton, loadButton, helpButton, exitGameButton, settingsButton;
 
     public void startGame(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToMainGame.fxml")));

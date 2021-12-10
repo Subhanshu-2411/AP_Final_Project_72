@@ -33,6 +33,7 @@ public class HelloApplication extends Application {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Close Game");
         alert.setHeaderText("You are about to Close the Game");
+        alert.setContentText("Do you want to Close ?");
 
         if(alert.showAndWait().get() == ButtonType.OK){
             stage.close();
