@@ -6,9 +6,7 @@ import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,15 +19,14 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class LoadingScreenToGame2Controller implements Initializable {
+public class LoadingScreenToSettingsPageController implements Initializable {
 
     private Parent root;
     private Stage stage;
     private Scene scene;
-    private ActionEvent event;
+    private final ActionEvent event = new ActionEvent();
 
     @FXML
     private ImageView HeroImage, OrcImage1, OrcImage2, OrcImage3;
@@ -38,19 +35,20 @@ public class LoadingScreenToGame2Controller implements Initializable {
     private ProgressBar progress;
 
     @FXML
-    private Button myButton;
+    private Label myLabel;
 
     @FXML
-    private Label myLabel;
+    private Button myButton;
 
     BigDecimal progressDouble = new BigDecimal(String.format("%2f", 0.0));
 
-    public void game2(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game2.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void settingsPage(ActionEvent event) throws IOException {
+        System.out.println("You arrived at Settings Page");
+//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("SettingsPage.fxml")));
+//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
     }
 
     @Override
@@ -59,7 +57,7 @@ public class LoadingScreenToGame2Controller implements Initializable {
         translateHero.setNode(HeroImage);
         translateHero.setDuration(Duration.millis(500));
         translateHero.setCycleCount(TranslateTransition.INDEFINITE);
-        translateHero.setByY(-100);
+        translateHero.setByY(-105);
         translateHero.setAutoReverse(true);
         translateHero.play();
 
@@ -95,16 +93,16 @@ public class LoadingScreenToGame2Controller implements Initializable {
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
-                new KeyFrame(Duration.seconds(15), e-> {
-                     // Next Screen Function --- Game 2
+                new KeyFrame(Duration.seconds(10), e-> {
                     progressDouble = new BigDecimal(String.format("%2f", progressDouble.doubleValue() + 1.0));
                     if(progressDouble.doubleValue() == 1.0){
                         myLabel.setText("Click Anywhere To Continue!!");
                     }
-
                 }, new KeyValue(progress.progressProperty(), 1))
         );
         timeline.setCycleCount(1);
         timeline.play();
+
+
     }
 }

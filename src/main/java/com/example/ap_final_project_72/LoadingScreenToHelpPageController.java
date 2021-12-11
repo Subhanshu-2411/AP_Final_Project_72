@@ -4,22 +4,51 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoadingScreenToHelpPageController implements Initializable {
+
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
 
     @FXML
     private ImageView HeroImage, OrcImage1, OrcImage2, OrcImage3;
 
     @FXML
     private ProgressBar progress;
+
+    @FXML
+    private Button myButton;
+
+    @FXML
+    private Label myLabel;
+
+    BigDecimal progressDouble = new BigDecimal(String.format("%2f", 0.0));
+
+    public void helpPage(ActionEvent event) throws IOException {
+        System.out.println("You arrived at help Page");
+//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("")));
+//        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,11 +89,16 @@ public class LoadingScreenToHelpPageController implements Initializable {
         translateOrc3.play();
 
         progress.setStyle("-fx-accent: #ffcc00;");
+        myLabel.setText("Please Wait...");
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
                 new KeyFrame(Duration.seconds(10), e-> {
                     // Next Screen Function --- Help Page
+                    progressDouble = new BigDecimal(String.format("%2f", progressDouble.doubleValue() + 1.0));
+                    if(progressDouble.doubleValue() == 1.0){
+                        myLabel.setText("Click Anywhere To Continue!!");
+                    }
                 }, new KeyValue(progress.progressProperty(), 1))
         );
         timeline.setCycleCount(1);

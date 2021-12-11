@@ -6,67 +6,43 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_final_project_72.LoadGamePageController">
-    <children>
-        <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/home_page.png" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="HeroImage" fitHeight="57.0" fitWidth="89.0" layoutX="133.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/HERO.png" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="OrcImage1" fitHeight="64.0" fitWidth="75.0" layoutX="578.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/orc1.jpg" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="OrcImage2" fitHeight="64.0" fitWidth="75.0" layoutX="773.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/orc1.jpg" />
-            </image>
-        </ImageView>
-        <ImageView fx:id="OrcImage3" fitHeight="64.0" fitWidth="75.0" layoutX="852.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/orc1.jpg" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="57.0" fitWidth="129.0" layoutX="409.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/game1.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="42.0" fitWidth="150.0" layoutX="409.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/game2.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="42.0" fitWidth="152.0" layoutX="409.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/game3.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="64.0" fitWidth="72.0" layoutX="890.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/help.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="76.0" fitWidth="78.0" layoutX="890.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/settings.png" />
-            </image>
-        </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="125.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/back.png" />
-         </image>
-      </ImageView>
-        <Button fx:id="playButton" layoutX="409.0" layoutY="224.0" mnemonicParsing="false" onAction="#game1" opacity="0.0" prefHeight="42.0" prefWidth="129.0" />
-        <Button fx:id="game3Button" layoutX="409.0" layoutY="344.0" mnemonicParsing="false" onAction="#game3" opacity="0.0" prefHeight="42.0" prefWidth="126.0" />
-        <Button fx:id="settingsButton" layoutX="894.0" layoutY="98.0" mnemonicParsing="false" onAction="#settingPage" opacity="0.0" prefHeight="50.0" prefWidth="53.0" />
-        <Button fx:id="loadButton" layoutX="410.0" layoutY="282.0" mnemonicParsing="false" onAction="#game2" opacity="0.0" prefHeight="42.0" prefWidth="126.0" />
-        <Button fx:id="helpButton" layoutX="892.0" layoutY="21.0" mnemonicParsing="false" onAction="#helpPage" opacity="0.0" prefHeight="57.0" prefWidth="54.0" />
-      <Button fx:id="backButton" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#back" opacity="0.0" prefHeight="40.0" prefWidth="100.0" />
-    </children>
+    <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/home_page.png" />
+    </ImageView>
+    <ImageView fx:id="HeroImage" fitHeight="57.0" fitWidth="89.0" layoutX="133.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/HERO.png" />
+    </ImageView>
+    <ImageView fx:id="OrcImage1" fitHeight="64.0" fitWidth="75.0" layoutX="578.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/orc1.jpg" />
+    </ImageView>
+    <ImageView fx:id="OrcImage2" fitHeight="64.0" fitWidth="75.0" layoutX="773.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/orc1.jpg" />
+    </ImageView>
+    <ImageView fx:id="OrcImage3" fitHeight="64.0" fitWidth="75.0" layoutX="852.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/orc1.jpg" />
+    </ImageView>
+    <ImageView fitHeight="64.0" fitWidth="72.0" layoutX="890.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/help.png" />
+    </ImageView>
+    <Button fx:id="settingsButton" layoutX="894.0" layoutY="98.0" mnemonicParsing="false" onAction="#settingPage" opacity="0.0" prefHeight="50.0" prefWidth="53.0" />
+    <ImageView fitHeight="76.0" fitWidth="78.0" layoutX="890.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/settings.png" />
+    </ImageView>
+    <ImageView fitHeight="50.0" fitWidth="125.0" layoutX="425.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/game1.png" />
+    </ImageView>
+    <ImageView fitHeight="50.0" fitWidth="125.0" layoutX="425.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/game2.png" />
+    </ImageView>
+    <ImageView fitHeight="50.0" fitWidth="125.0" layoutX="425.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/game3.png" />
+    </ImageView>
+    <ImageView fitHeight="50.0" fitWidth="125.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@images/back.png" />
+    </ImageView>
+    <Button fx:id="helpButton" layoutX="892.0" layoutY="21.0" mnemonicParsing="false" onAction="#helpPage" opacity="0.0" prefHeight="57.0" prefWidth="54.0" />
+    <Button fx:id="game1Button" layoutX="425.0" layoutY="200.0" mnemonicParsing="false" onAction="#game1" opacity="0.0" prefHeight="40.0" prefWidth="125.0" />
+    <Button fx:id="backButton" layoutX="14.0" layoutY="28.0" mnemonicParsing="false" onAction="#back" opacity="0.02" prefHeight="40.0" prefWidth="100.0" />
+   <Button fx:id="game2Button" layoutX="425.0" layoutY="260.0" mnemonicParsing="false" onAction="#game2" opacity="0.0" prefHeight="40.0" prefWidth="125.0" />
+   <Button fx:id="game3Button" layoutX="425.0" layoutY="320.0" mnemonicParsing="false" onAction="#game3" opacity="0.0" prefHeight="40.0" prefWidth="125.0" />
 </AnchorPane>
