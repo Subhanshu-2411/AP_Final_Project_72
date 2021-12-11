@@ -32,7 +32,7 @@ public class MainMenuController implements Initializable {
     private Button playButton, loadButton, helpButton, exitGameButton, settingsButton;
 
     public void startGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToMainGame.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToNewGame.fxml")));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
