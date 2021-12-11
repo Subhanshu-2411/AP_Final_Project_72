@@ -8,56 +8,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_final_project_72.NewGameController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#13e8e43a" height="540.0" stroke="BLACK" strokeType="INSIDE" width="960.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/step%203.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="104.0" fitWidth="161.0" layoutX="329.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/step%202.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="66.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/settings.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="179.0" fitWidth="171.0" layoutX="606.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/step%201.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="59.0" layoutX="450.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/settings.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="879.0" layoutY="25.0" prefHeight="54.0" prefWidth="40.0" text="00">
-         <font>
-            <Font name="Segoe UI Historic" size="36.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="52.0" fitWidth="59.0" layoutX="99.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/HERO.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="58.0" fitWidth="78.0" layoutX="342.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/orc1.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="78.0" layoutX="625.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/chest1.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#13e8e43a" height="540.0" stroke="#13e8e4" strokeType="INSIDE" width="960.0" />
       <Circle fill="#dfdfdf" layoutX="136.0" layoutY="126.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
       <Circle fill="#dfdfdf" layoutX="186.0" layoutY="102.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
       <Circle fill="#dfdfdf" layoutX="226.0" layoutY="136.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
@@ -74,5 +27,68 @@
       <Circle fill="#dfdfdf" layoutX="521.0" layoutY="126.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
       <Circle fill="#dfdfdf" layoutX="539.0" layoutY="161.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
       <Circle fill="#dfdfdf" layoutX="621.0" layoutY="161.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="876.0" layoutY="218.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="926.0" layoutY="194.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="966.0" layoutY="228.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="876.0" layoutY="236.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="955.0" layoutY="236.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="807.0" layoutY="214.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="807.0" layoutY="264.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <Circle fill="#dfdfdf" layoutX="889.0" layoutY="264.0" radius="50.0" stroke="#dfdfdf" strokeType="INSIDE" />
+      <ImageView fitHeight="71.0" fitWidth="66.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/settings.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="71.0" fitWidth="59.0" layoutX="450.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/settings.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="879.0" layoutY="25.0" prefHeight="54.0" prefWidth="40.0" text="00">
+         <font>
+            <Font name="Segoe UI Historic" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="heroImage" fitHeight="52.0" fitWidth="59.0" layoutX="99.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/HERO.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="orcImage" fitHeight="58.0" fitWidth="78.0" layoutX="342.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/orc1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="100.0" layoutX="430.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/ChestClosed.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="scoreCoin" fitHeight="18.0" fitWidth="27.0" layoutX="848.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Coin.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="17.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Islands1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="329.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Islands2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="648.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Islands3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="gameCoin1" fitHeight="36.0" fitWidth="82.0" layoutX="654.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Coin.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

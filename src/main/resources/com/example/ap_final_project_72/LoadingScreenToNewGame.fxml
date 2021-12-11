@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_final_project_72.LoadingScreenToNewGameController">
+    <children>
+        <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/home_page.png" />
+        </ImageView>
+        <ImageView fx:id="HeroImage" fitHeight="57.0" fitWidth="89.0" layoutX="133.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/HERO.png" />
+        </ImageView>
+        <ImageView fx:id="OrcImage1" fitHeight="64.0" fitWidth="75.0" layoutX="578.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/orc1.jpg" />
+        </ImageView>
+        <ImageView fx:id="OrcImage2" fitHeight="64.0" fitWidth="75.0" layoutX="773.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/orc1.jpg" />
+        </ImageView>
+        <ImageView fx:id="OrcImage3" fitHeight="64.0" fitWidth="75.0" layoutX="852.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/orc1.jpg" />
+        </ImageView>
+        <ImageView fitHeight="64.0" fitWidth="192.0" layoutX="397.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/loading.png" />
+        </ImageView>
+      <ProgressBar fx:id="progress" layoutY="480.0" prefHeight="30.0" prefWidth="960.0" progress="0.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ProgressBar>
+        <Label fx:id="myLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="510.0" prefHeight="30.0" prefWidth="960.0" textFill="#ffcc00">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+      <Button fx:id="myButton" mnemonicParsing="false" onAction="#playGame" opacity="0.0" prefHeight="540.0" prefWidth="960.0" />
+
+    </children>
+</AnchorPane>
