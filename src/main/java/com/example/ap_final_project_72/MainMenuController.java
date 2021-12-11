@@ -45,11 +45,6 @@ public class MainMenuController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadGamePage.fxml")));
-//        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
     }
 
     public void helpPage(ActionEvent event) throws IOException{

@@ -11,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -34,6 +36,12 @@ public class LoadingScreenToMainGameController implements Initializable {
 
     @FXML
     private ProgressBar progress;
+
+    @FXML
+    private Label myLabel;
+
+    @FXML
+    private Button myButton;
 
     BigDecimal progressDouble = new BigDecimal(String.format("%2f", 0.0));
 
@@ -83,13 +91,15 @@ public class LoadingScreenToMainGameController implements Initializable {
         translateOrc3.play();
 
         progress.setStyle("-fx-accent: #ffcc00;");
+        myLabel.setText("Please Wait...");
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
                 new KeyFrame(Duration.seconds(15), e-> {
-                    // Next Screen Function --- Main Game
-
-
+                    progressDouble = new BigDecimal(String.format("%2f", progressDouble.doubleValue() + 1.0));
+                    if(progressDouble.doubleValue() == 1.0){
+                        myLabel.setText("Click Anywhere To Continue!!");
+                    }
                 },
                 new KeyValue(progress.progressProperty(), 1))
         );

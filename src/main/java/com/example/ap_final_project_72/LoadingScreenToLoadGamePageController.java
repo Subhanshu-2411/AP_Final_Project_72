@@ -91,7 +91,7 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
         translateOrc3.play();
 
         progress.setStyle("-fx-accent: #ffcc00;");
-
+        myLabel.setText("Please Wait...");
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
@@ -100,8 +100,6 @@ public class LoadingScreenToLoadGamePageController implements Initializable {
                     if(progressDouble.doubleValue() == 1.0){
                         myLabel.setText("Click Anywhere To Continue!!");
                     }
-
-
                 }, new KeyValue(progress.progressProperty(), 1))
         );
         timeline.setCycleCount(1);

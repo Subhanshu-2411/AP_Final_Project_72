@@ -28,42 +28,53 @@ public class LoadGamePageController implements Initializable {
     private ImageView HeroImage, OrcImage1, OrcImage2, OrcImage3;
 
     @FXML
-    private Button backButton, game1Button, game2Button, helpButton, game3Button, settingsButton;
+    private Button helpButton, settingsButton, game1Button, game2Button, game3Button, backButton;
 
-    public void game1(){
-        System.out.println("Hello 1");
-    }
-
-    public void game2(){
-        System.out.println("Hello 2");
-    }
-
-    public void game3(){
-        System.out.println("Hello 3");
-    }
-
-    public void helpPage(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToHelpPage.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void settingPage(ActionEvent event) throws  IOException{
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToSettingsPage.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void back(ActionEvent event) throws IOException{
+    public void back(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void game1(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToGame1.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void game2(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToGame2.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void game3(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToGame3.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void helpPage(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToHelpPage.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void settingPage(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingScreenToSettingsPage.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     @Override
