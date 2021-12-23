@@ -16,6 +16,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Will Hero");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
         stage.setOnCloseRequest(event -> {

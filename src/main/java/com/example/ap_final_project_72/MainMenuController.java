@@ -90,6 +90,8 @@ public class MainMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
         TranslateTransition translateHero = new TranslateTransition();
         translateHero.setNode(HeroImage);
         translateHero.setDuration(Duration.millis(500));

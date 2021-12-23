@@ -105,5 +105,6 @@ public class LoadingScreenToNewGameController implements Initializable {
         );
         timeline.setCycleCount(1);
         timeline.play();
+
     }
 }
