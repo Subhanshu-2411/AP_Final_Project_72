@@ -6,25 +6,35 @@ import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class NewGameController implements Initializable {
 
-
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
 
     @FXML
     private ImageView orcImage, heroImage, scoreCoin, gameCoin1, gameCoin2, gameCoin3, staticIsland1, staticIsland2, movingIsland1, chestImage;
 
     @FXML
-    private Button myButton;
+    private Button myButton, pauseButton;
 
+    CoinChest coinChest1 = new CoinChest(5, false);
 
     @FXML
     private void heroMoveForward(ActionEvent event) {
@@ -34,6 +44,14 @@ public class NewGameController implements Initializable {
         translateHero.setByX(+ 50.0);
         translateHero.play();
 
+    }
+
+    public void pauseGame(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PauseGame.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void orcMoveForward() {
@@ -176,8 +194,11 @@ public class NewGameController implements Initializable {
     private void heroChestCheckCollision(ImageView img1, ImageView img2) {
 
         if (img1.getBoundsInParent().intersects(img2.getBoundsInParent())) {
-            CoinChest coinChest = new CoinChest(5);
-            coinChest.chestOpenAnimation(chestImage);
+
+            if(!coinChest1.isOpened()){
+                coinChest1.chestOpenAnimation(chestImage);
+                coinChest1.setOpened(true);
+            }
         }
 
     }
