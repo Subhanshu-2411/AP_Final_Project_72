@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_final_project_72.NewGameController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#13e8e43a" height="540.0" stroke="#13e8e4" strokeType="INSIDE" width="960.0" />
@@ -26,7 +26,7 @@
             <Image url="@images/Islands10.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="66.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="54.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/settings.png" />
          </image>
@@ -36,12 +36,12 @@
             <Image url="@images/pause.png" />
          </image>
       </ImageView>
-      <Label layoutX="879.0" layoutY="25.0" prefHeight="54.0" prefWidth="40.0" text="00">
+      <Label fx:id="coinLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="879.0" layoutY="27.0" prefHeight="52.0" prefWidth="46.0" text="00">
          <font>
             <Font name="Segoe UI Historic" size="36.0" />
          </font>
       </Label>
-      <ImageView fx:id="chestImage" fitHeight="58.0" fitWidth="100.0" layoutX="430.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coinChest1" fitHeight="58.0" fitWidth="100.0" layoutX="430.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/chest_a_1.png" />
          </image>
@@ -51,7 +51,7 @@
             <Image url="@images/Tree1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="scoreCoin" fitHeight="18.0" fitWidth="27.0" layoutX="848.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scoreCoin" fitHeight="25.0" fitWidth="25.0" layoutX="848.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/Coin.png" />
          </image>
@@ -81,17 +81,21 @@
             <Image url="@images/Islands10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="orcImage" fitHeight="58.0" fitWidth="78.0" layoutX="342.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="orcImage1" fitHeight="58.0" fitWidth="78.0" layoutX="340.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/orc1.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="heroImage" fitHeight="52.0" fitWidth="59.0" layoutX="99.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="heroImage" fitHeight="52.0" fitWidth="59.0" layoutX="100.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/HERO.png" />
          </image>
       </ImageView>
       <Button fx:id="myButton" mnemonicParsing="false" onAction="#heroMoveForward" opacity="0.0" prefHeight="540.0" prefWidth="960.0" />
-      <Button fx:id="pauseButton" layoutX="452.0" layoutY="12.0" mnemonicParsing="false" onAction="#pauseGame" opacity="0.0" prefHeight="52.0" prefWidth="54.0" />
+      <Button fx:id="pauseButton" layoutX="452.0" layoutY="5.0" mnemonicParsing="false" onAction="#pauseGame" opacity="0.0" prefHeight="52.0" prefWidth="54.0" />
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="320.0" disable="true" prefHeight="540.0" prefWidth="960.0">
+
+      </JFXDrawer>
+      <JFXHamburger fx:id="hamburger" layoutX="25.0" layoutY="14.0" />
    </children>
 </AnchorPane>
