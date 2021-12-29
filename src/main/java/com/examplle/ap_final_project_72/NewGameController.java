@@ -1,5 +1,7 @@
 package com.example.ap_final_project_72;
 
+import animatefx.animation.Bounce;
+import animatefx.animation.RollIn;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
@@ -9,7 +11,6 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,7 +27,6 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.ap_final_project_72.HelloApplication.musicPause;
 import static com.example.ap_final_project_72.HelloApplication.musicPlay;
 
 
@@ -37,7 +37,8 @@ public class NewGameController implements Initializable {
     private Scene scene;
 
     @FXML
-    private ImageView orcImage1, heroImage, scoreCoin, gameCoin1, gameCoin2, gameCoin3, staticIsland1, staticIsland2, movingIsland1, coinChest1, helpButton, quitButton, restartButton, resumeButton;
+    private ImageView orcImage1, heroImage, scoreCoin, gameCoin1, gameCoin2, gameCoin3,
+            staticIsland1, staticIsland2, movingIsland1, coinChest1;
 
     @FXML
     private AnchorPane navigationContent;
@@ -49,7 +50,8 @@ public class NewGameController implements Initializable {
     private JFXHamburger hamburger;
 
     @FXML
-    private Button myButton, pauseButton;
+    private Button myButton, pauseButton, helpButton, quitButton,
+            restartButton, resumeButton;
 
     @FXML
     private Label coinLabel, pointsLabel;
@@ -58,100 +60,99 @@ public class NewGameController implements Initializable {
     int a = 2;
 
 
-    @FXML
-    private void heroMoveForward() {
+    //@FXML
+//    private void heroMoveForward() {
+//
+//        if (a > 0) {
+//            --a;
+//            heroTranslateX(heroImage, + 250.0, Duration.millis(200));
+//        }
+//        else {
+//            orcTranslateX(orcImage1, -250.0, Duration.millis(200));
+//            staticIslandTranslateX(staticIsland1, -250.0, Duration.millis(200));
+//            staticIslandTranslateX(staticIsland2, -250.0, Duration.millis(200));
+//            movingIslandTranslateX(movingIsland1, -250.0, Duration.millis(200));
+//            gameCoinTranslateX(gameCoin1, -250.0, Duration.millis(200));
+//            coinChestTranslateX(coinChest1, -250.0, Duration.millis(200));
+//        }
+//    }
 
-        if (a > 0) {
-            --a;
-            heroTranslateX(heroImage, + 250.0, Duration.millis(100));
-        }
-        else {
-            orcTranslateX(orcImage1, -250.0, Duration.millis(100));
-            staticIslandTranslateX(staticIsland1, -250.0, Duration.millis(100));
-            staticIslandTranslateX(staticIsland2, -250.0, Duration.millis(100));
-            movingIslandTranslateX(movingIsland1, -250.0, Duration.millis(100));
-            gameCoinTranslateX(gameCoin1, -250.0, Duration.millis(100));
-            coinChestTranslateX(coinChest1, -250.0, Duration.millis(100));
-        }
-    }
+//    private void coinChestTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
+//        TranslateTransition translateCoinChest1 = new TranslateTransition();
+//        translateCoinChest1.setNode(imageView);
+//        translateCoinChest1.setDuration(duration);
+//        translateCoinChest1.setByX(translatedAmount);
+//        translateCoinChest1.play();
+//    }
+//    private void gameCoinTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
+//        TranslateTransition translateGameCoin1 = new TranslateTransition();
+//        translateGameCoin1.setNode(imageView);
+//        translateGameCoin1.setDuration(duration);
+//        translateGameCoin1.setByX(translatedAmount);
+//        translateGameCoin1.play();
+//    }
+//    private void heroTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
+//        TranslateTransition translateHero = new TranslateTransition();
+//        translateHero.setNode(imageView);
+//        translateHero.setDuration(duration);
+//        translateHero.setByX(translatedAmount);
+//        translateHero.play();
+//    }
+//    private void staticIslandTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
+//        TranslateTransition translateStaticIsland = new TranslateTransition();
+//        translateStaticIsland.setNode(imageView);
+//        translateStaticIsland.setDuration(duration);
+//        translateStaticIsland.setByX(translatedAmount);
+//        translateStaticIsland.play();
+//    }
+//    private void movingIslandTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
+//        TranslateTransition translateMovingIsland = new TranslateTransition();
+//        translateMovingIsland.setNode(imageView);
+//        translateMovingIsland.setDuration(duration);
+//        translateMovingIsland.setByX(-250.0);
+//        translateMovingIsland.play();
+//    }
+//    private void orcTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
+//        TranslateTransition translateOrc = new TranslateTransition();
+//        translateOrc.setNode(imageView);
+//        translateOrc.setDuration(duration);
+//        translateOrc.setByX(translatedAmount);
+//        translateOrc.play();
+//    }
 
-    private void coinChestTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
-        TranslateTransition translateCoinChest1 = new TranslateTransition();
-        translateCoinChest1.setNode(imageView);
-        translateCoinChest1.setDuration(duration);
-        translateCoinChest1.setByX(translatedAmount);
-        translateCoinChest1.play();
-    }
-    private void gameCoinTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
-        TranslateTransition translateGameCoin1 = new TranslateTransition();
-        translateGameCoin1.setNode(imageView);
-        translateGameCoin1.setDuration(duration);
-        translateGameCoin1.setByX(translatedAmount);
-        translateGameCoin1.play();
-    }
-    private void heroTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
-        TranslateTransition translateHero = new TranslateTransition();
-        translateHero.setNode(imageView);
-        translateHero.setDuration(duration);
-        translateHero.setByX(translatedAmount);
-        translateHero.play();
-    }
-    private void staticIslandTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
-        TranslateTransition translateStaticIsland = new TranslateTransition();
-        translateStaticIsland.setNode(imageView);
-        translateStaticIsland.setDuration(duration);
-        translateStaticIsland.setByX(translatedAmount);
-        translateStaticIsland.play();
-    }
-    private void movingIslandTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
-        TranslateTransition translateMovingIsland = new TranslateTransition();
-        translateMovingIsland.setNode(imageView);
-        translateMovingIsland.setDuration(duration);
-        translateMovingIsland.setByX(-250.0);
-        translateMovingIsland.play();
-    }
-    private void orcTranslateX(ImageView imageView, double translatedAmount, Duration duration) {
-        TranslateTransition translateOrc = new TranslateTransition();
-        translateOrc.setNode(imageView);
-        translateOrc.setDuration(duration);
-        translateOrc.setByX(translatedAmount);
-        translateOrc.play();
-    }
+//    public void pauseGame() throws IOException{
+//        musicPause();
+//        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PauseGame.fxml")));
+//        stage = (Stage) pauseButton.getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
-    public void pauseGame() throws IOException{
-        musicPause();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PauseGame.fxml")));
-        stage = (Stage) pauseButton.getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    private void orcMoveForward() {
+//        orcTranslateX(orcImage1, 50, Duration.millis(100));
+//        heroTranslateX(heroImage, - 50.0, Duration.millis(100));
+//    }
 
-    private void orcMoveForward() {
-        orcTranslateX(orcImage1, 50, Duration.millis(100));
-        heroTranslateX(heroImage, - 50.0, Duration.millis(100));
-    }
-
-    // change these to incorporate gravity
-    private void heroTranslateY(ImageView imageView, double translatedAmount, Duration duration, boolean autoReverse){
-        TranslateTransition translateHero = new TranslateTransition();
-        translateHero.setNode(imageView);
-        translateHero.setDuration(duration);
-        translateHero.setCycleCount(TranslateTransition.INDEFINITE);
-        translateHero.setByY(translatedAmount);
-        translateHero.setAutoReverse(autoReverse);
-        translateHero.play();
-
-    }
-    private void orcTranslateY(ImageView imageView, double translatedAmount, Duration duration, boolean autoReverse){
-        TranslateTransition translateOrc = new TranslateTransition();
-        translateOrc.setNode(imageView);
-        translateOrc.setDuration(duration);
-        translateOrc.setCycleCount(TranslateTransition.INDEFINITE);
-        translateOrc.setByY(translatedAmount);
-        translateOrc.setAutoReverse(autoReverse);
-        translateOrc.play();
-    }
+//    private void heroTranslateY(ImageView imageView, double translatedAmount, Duration duration, boolean autoReverse){
+//        TranslateTransition translateHero = new TranslateTransition();
+//        translateHero.setNode(imageView);
+//        translateHero.setDuration(duration);
+//        translateHero.setCycleCount(TranslateTransition.INDEFINITE);
+//        translateHero.setByY(translatedAmount);
+//        translateHero.setAutoReverse(autoReverse);
+//        translateHero.play();
+//
+//    }
+//    private void orcTranslateY(ImageView imageView, double translatedAmount, Duration duration, boolean autoReverse){
+//        TranslateTransition translateOrc = new TranslateTransition();
+//        translateOrc.setNode(imageView);
+//        translateOrc.setDuration(duration);
+//        translateOrc.setCycleCount(TranslateTransition.INDEFINITE);
+//        translateOrc.setByY(translatedAmount);
+//        translateOrc.setAutoReverse(autoReverse);
+//        translateOrc.play();
+//    }
     private void scoreCoinRotate(ImageView imageView, int rotatedAngle, Duration duration){
         RotateTransition rotateScoreCoin = new RotateTransition();
         rotateScoreCoin.setNode(imageView);
@@ -185,9 +186,6 @@ public class NewGameController implements Initializable {
     private void navigationDrawer() throws IOException {
         navigationContent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NavigationDrawerContent.fxml")));
         drawer.setSidePane(navigationContent);
-        for(Node node: navigationContent.getChildren()){
-
-        }
 
         HamburgerBackArrowBasicTransition hamburgerBackArrowBasicTransition = new HamburgerBackArrowBasicTransition(hamburger);
         hamburgerBackArrowBasicTransition.setRate(-1.0);
@@ -227,40 +225,32 @@ public class NewGameController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        heroTranslateY(heroImage, 100, Duration.millis(500), true);
-        orcTranslateY(orcImage1, 100, Duration.millis(500), true);
+        //heroTranslateY(heroImage, 100, Duration.millis(500), true);
+        //orcTranslateY(orcImage1, 100, Duration.millis(500), true);
         scoreCoinRotate(scoreCoin, 360, Duration.millis(2500));
         gameCoinRotate(gameCoin1, 360, Duration.millis(1000));
         gameCoinRotate(gameCoin2, 360, Duration.millis(1000));
         gameCoinRotate(gameCoin3, 360, Duration.millis(1000));
         islandTranslateY(movingIsland1, -40, Duration.millis(500), true);
 
+        new RollIn(heroImage).play();
+        new Bounce(orcImage1).play();
+
         collisionTimer.start();
+
     }
 
     private void heroOrcCheckCollision(ImageView img1, ImageView img2){
         if(img1.getBoundsInParent().intersects(img2.getBoundsInParent())){
-            //System.out.println("COLLISION");
-            orcMoveForward();
-            if((img1.getLayoutX() + img1.getFitWidth()) == img2.getLayoutX()){
-                System.out.println("COLLISION1");
-            }
-            else if(img1.getLayoutY() == (img2.getLayoutY() + img2.getFitHeight()) ){
-                System.out.println("COLLISION3");
-            }
-            else if((img1.getLayoutY() + img1.getFitHeight()) == img2.getLayoutY()){
-                System.out.println("COLLISION2");
-            }
+            //orcMoveForward();
         }
     }
     private void heroIslandCheckCollision(ImageView img1, ImageView img2){
         if(img1.getBoundsInParent().intersects(img2.getBoundsInParent())){
-            //heroTranslateY(heroImage, -100, Duration.millis(250), false);
         }
     }
     private void orcIslandCheckCollision(ImageView img1, ImageView img2){
         if(img1.getBoundsInParent().intersects(img2.getBoundsInParent())){
-            //orcTranslateY(heroImage, -100, Duration.millis(250), false);
         }
     }
     private void heroCoinChestCheckCollision(ImageView img1, ImageView img2, CoinChest coinChest) {
@@ -284,5 +274,27 @@ public class NewGameController implements Initializable {
     }
     private void bounce(){
 
+    }
+
+    private void restart() throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewGame.fxml")));
+        stage = (Stage) restartButton.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    private void help() throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("HelpPage.fxml")));
+        stage = (Stage) helpButton.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    private void quit() throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
+        stage = (Stage) quitButton.getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
