@@ -69,7 +69,7 @@ public class NewGameController implements Initializable
 
     @FXML
     private ImageView orcImage1, orcImage2, orcImage3,orcImage4, orcImage5, heroImage, scoreCoin,
-            movingIsland1, coinChest1,speaker,mute,tnt, weapon;
+            movingIsland1, coinChest1,speaker,mute,tnt, weapon,resume, pause;
 
     ArrayList<Boolean> checkcoin_list;
     private  boolean check_chest;
@@ -328,6 +328,7 @@ public class NewGameController implements Initializable
         if(heroImage.getLayoutY()>400)
         {
             System.exit(0);
+
         }
     }
 
@@ -620,6 +621,8 @@ public class NewGameController implements Initializable
         timeline1.pause();
         orc1_timeline.pause();
         hero_timeline.pause();
+        resume.setOpacity(1);
+        pause.setOpacity(0);
     }
     @FXML
     private void resume() throws IOException
@@ -627,6 +630,8 @@ public class NewGameController implements Initializable
         timeline1.play();;
         hero_timeline.play();
         orc1_timeline.play();
+        resume.setOpacity(0);
+        pause.setOpacity(1);
     }
 
     @FXML
