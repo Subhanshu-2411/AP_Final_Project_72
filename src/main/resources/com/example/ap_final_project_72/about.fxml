@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ap_final_project_72.HelpPageController">
+    <children>
+        <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/home_page.png" />
+            </image>
+        </ImageView>
+        <Rectangle fx:id="Shape1" arcHeight="5.0" arcWidth="5.0" fill="#c0ff00" height="360.0" layoutX="180.0" layoutY="160.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+        <Label fx:id="Text1" alignment="CENTER" layoutX="190.0" layoutY="160.0" prefHeight="35.0" prefWidth="589.0" text="Welcome To WILL HERO Game">
+            <font>
+                <Font name="System Bold" size="34.0" />
+            </font>
+        </Label>
+        <Label fx:id="Text2" layoutX="190.0" layoutY="220.0" prefHeight="32.0" prefWidth="562.0" text="This is a Single Player Game developed for children ages 3+.">
+            <font>
+                <Font name="Segoe Print" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="Text4" layoutX="189.0" layoutY="286.0" prefHeight="18.0" prefWidth="540.0" text="HOW TO PLAY:">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+        <Label fx:id="Text8" layoutX="189.0" layoutY="406.0" prefHeight="27.0" prefWidth="581.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/back.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="backButton" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" opacity="0.0" prefHeight="45.0" prefWidth="100.0" />
+      <Label fx:id="Text21" layoutX="190.0" layoutY="254.0" prefHeight="32.0" prefWidth="562.0" text="This game requires only mouse click skill.">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Text211" layoutX="190.0" layoutY="324.0" prefHeight="32.0" prefWidth="645.0" text="On Starting a new Game, the Hero jumps up and down.">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Text2111" layoutX="190.0" layoutY="352.0" prefHeight="32.0" prefWidth="645.0" text="Click the left mouse button to move the Hero forward. ">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Text2112" layoutX="190.0" layoutY="374.0" prefHeight="32.0" prefWidth="645.0" text="As the Hero Defeats the Orc, he gets 1 point . Defeat the Orc ">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Text21121" layoutX="190.0" layoutY="404.0" prefHeight="32.0" prefWidth="645.0" text="by pushing them out of the islands or destroying them by ">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Text211211" layoutX="190.0" layoutY="433.0" prefHeight="32.0" prefWidth="645.0" text="weapons collected from Weapon Chest.">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
