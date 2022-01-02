@@ -12,22 +12,22 @@
                 <Image url="@images/home_page.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="HeroImage" fitHeight="57.0" fitWidth="89.0" layoutX="133.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="HeroImage" fitHeight="57.0" fitWidth="89.0" layoutX="137.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/HERO.png" />
             </image>
         </ImageView>
-        <ImageView fx:id="OrcImage1" fitHeight="64.0" fitWidth="75.0" layoutX="578.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="OrcImage1" fitHeight="64.0" fitWidth="75.0" layoutX="573.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/orc1.jpg" />
             </image>
         </ImageView>
-        <ImageView fx:id="OrcImage2" fitHeight="64.0" fitWidth="75.0" layoutX="773.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="OrcImage2" fitHeight="64.0" fitWidth="75.0" layoutX="760.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/orc1.jpg" />
             </image>
         </ImageView>
-        <ImageView fx:id="OrcImage3" fitHeight="64.0" fitWidth="75.0" layoutX="852.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="OrcImage3" fitHeight="64.0" fitWidth="75.0" layoutX="847.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/orc1.jpg" />
             </image>
