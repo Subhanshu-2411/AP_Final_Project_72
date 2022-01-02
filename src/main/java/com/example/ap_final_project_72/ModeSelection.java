@@ -1,6 +1,9 @@
 package com.example.ap_final_project_72;
 
-import javafx.animation.*;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,44 +12,61 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class LoadingScreenToGame3Controller implements Initializable {
+public class ModeSelection implements Initializable {
 
     private Parent root;
     private Stage stage;
     private Scene scene;
-    private ActionEvent event;
+
 
     @FXML
-    private ImageView HeroImage, OrcImage1, OrcImage2, OrcImage3;
+    private ImageView HeroImage, OrcImage2, OrcImage3;
 
     @FXML
-    private ProgressBar progress;
+    private Button easy, medium, hard ;
 
     @FXML
-    private Button myButton;
-
-    @FXML
-    private Label myLabel;
-
-    BigDecimal progressDouble = new BigDecimal(String.format("%2f", 0.0));
-
-    public void game3(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Game1.fxml")));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    public void easy_mode(ActionEvent event) throws IOException {
+        NewGameController.mode=1;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewGame.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setWidth(951.0);
+        stage.setHeight(540.0);
+        stage.show();
+    }
+
+    @FXML
+    public void medium_mode(ActionEvent event) throws IOException {
+        NewGameController.mode=2;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewGame.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setWidth(951.0);
+        stage.setHeight(540.0);
+        stage.show();
+    }
+
+    @FXML
+    public void hard_mode(ActionEvent event) throws IOException {
+        NewGameController.mode=3;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewGame.fxml")));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setWidth(951.0);
+        stage.setHeight(540.0);
         stage.show();
     }
 
@@ -59,14 +79,6 @@ public class LoadingScreenToGame3Controller implements Initializable {
         KeyFrame kf1 = new KeyFrame(Duration.millis(500), kv1);
         timeline1.getKeyFrames().add(kf1);
         timeline1.play();
-
-        Timeline timeline2 = new Timeline();
-        timeline2.setCycleCount(Timeline.INDEFINITE);
-        timeline2.setAutoReverse(true);
-        KeyValue kv2 = new KeyValue(OrcImage1.yProperty(), 100, Interpolator.EASE_BOTH);
-        KeyFrame kf2 = new KeyFrame(Duration.millis(300), kv2);
-        timeline2.getKeyFrames().add(kf2);
-        timeline2.play();
 
         Timeline timeline3 = new Timeline();
         timeline3.setCycleCount(Timeline.INDEFINITE);
@@ -83,21 +95,5 @@ public class LoadingScreenToGame3Controller implements Initializable {
         KeyFrame kf4 = new KeyFrame(Duration.millis(500), kv4);
         timeline4.getKeyFrames().add(kf4);
         timeline4.play();
-
-        progress.setStyle("-fx-accent: #ffcc00;");
-        myLabel.setText("Please Wait...");
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.ZERO, new KeyValue(progress.progressProperty(), 0)),
-                new KeyFrame(Duration.seconds(15), e-> {
-                    // Next Screen Function --- Game 3
-                    progressDouble = new BigDecimal(String.format("%2f", progressDouble.doubleValue() + 1.0));
-                    if(progressDouble.doubleValue() == 1.0){
-                        myLabel.setText("Click Anywhere To Continue!!");
-                    }
-                }, new KeyValue(progress.progressProperty(), 1))
-        );
-        timeline.setCycleCount(1);
-        timeline.play();
     }
 }

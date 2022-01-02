@@ -9,17 +9,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -41,9 +44,11 @@ public class NewGameController implements Initializable
     Media media=new Media(new File("src/main/resources/com/example/ap_final_project_72/music/backgroundMusic.mp3").toURI().toString());
     MediaPlayer mediaPlayer=new MediaPlayer(media);
 
+    Media media1=new Media(new File("src/main/resources/com/example/ap_final_project_72/music/orc_sound.mp3").toURI().toString());
+    MediaPlayer mediaPlayer1=new MediaPlayer(media1);
 
     @FXML
-    private AnchorPane staticPane, dynamicPane;
+    private AnchorPane dynamicPane;
 
     @FXML
     private Label stepsLabel;
@@ -59,14 +64,16 @@ public class NewGameController implements Initializable
 
     private Timeline orc1_timeline, coin_timeline;
 
-    private RotateTransition rotateScoreCoin=new RotateTransition();
-    private RotateTransition rotateGameCoin1=new RotateTransition();
     private int coins;
     private Timeline hero_timeline;
 
     @FXML
     private ImageView orcImage1, orcImage2, orcImage3,orcImage4, orcImage5, heroImage, scoreCoin,
-            movingIsland1, coinChest1,speaker,mute,tnt;
+            movingIsland1, coinChest1,speaker,mute,tnt, weapon;
+
+    ArrayList<Boolean> checkcoin_list;
+    private  boolean check_chest;
+
 
     @FXML
     private ImageView gameCoin1, gameCoin2, gameCoin3,gameCoin4,gameCoin5, gameCoin6,gameCoin7;
@@ -96,28 +103,22 @@ public class NewGameController implements Initializable
             if(hero.getSpeedx()<=hero.getMax_speed())
             {
                 hero.setSpeedx(hero.getSpeedx()+0.3*mode);
-                double v=heroImage.getLayoutX();
-                System.out.println("Hero layout before edit: "+heroImage.getLayoutX());
-                System.out.println("Dynamic pane layout before edit: "+dynamicPane.getLayoutX());
                 heroImage.setLayoutX(heroImage.getLayoutX()+hero.getSpeedx());
                 dynamicPane.setLayoutX(dynamicPane.getLayoutX()-hero.getSpeedx());
-                System.out.println("Hero layout after edit: "+heroImage.getLayoutX());
-                System.out.println("Orc layout"+orcImage1.getLayoutX());
-                System.out.println("Dynamic pane layout after edit: "+dynamicPane.getLayoutX());
-                System.out.println();
-
-                if(heroImage.getBoundsInParent().intersects(gameCoin1.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin1.getBoundsInParent()) && checkcoin_list.get(0)==false)
                 {
                     gameCoin1.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(0,true);
+                    coinLabel.setOpacity(1);
                     coinLabel.setText(""+coins);
                 }
-                if(heroImage.getBoundsInParent().intersects(tnt.getBoundsInParent()))
+
+                if(heroImage.getBoundsInParent().intersects(coinChest1.getBoundsInParent()) && check_chest==false)
                 {
-                    System.exit(0);
-                }
-                if(heroImage.getBoundsInParent().intersects(coinChest1.getBoundsInParent()))
-                {
+                    weapon.setOpacity(1);
+                    System.out.println("Hello");
+                    check_chest=true;
 //                    Image image1 = new Image("src/main/resources/com/example/ap_final_project_72/images/chest_a_1.png");
 //                    Image image2 = new Image("src/main/resources/com/example/ap_final_project_72/images/chest_a_2.png");
 //                    Image image3 = new Image("src/main/resources/com/example/ap_final_project_72/images/chest_a_3.png");
@@ -146,41 +147,48 @@ public class NewGameController implements Initializable
 //                    timeline.play();
                     coins+=3;
                     coinLabel.setText(""+coins);
+                   heroImage.setImage((new Image("resources/com/example/ap_final_project_72/images/hero_with_weapon.png")));
                 }
-                if(heroImage.getBoundsInParent().intersects(gameCoin2.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin2.getBoundsInParent())&& checkcoin_list.get(1)==false)
                 {
                     gameCoin2.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(1,true);
                     coinLabel.setText(""+coins);
                 }
-                if(heroImage.getBoundsInParent().intersects(gameCoin3.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin3.getBoundsInParent()) && checkcoin_list.get(2)==false)
                 {
                     gameCoin3.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(2,true);
                     coinLabel.setText(""+coins);
                 }
-                if(heroImage.getBoundsInParent().intersects(gameCoin4.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin4.getBoundsInParent())&& checkcoin_list.get(3)==false)
                 {
                     gameCoin4.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(3,true);
                     coinLabel.setText(""+coins);
                 }
-                if(heroImage.getBoundsInParent().intersects(gameCoin5.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin5.getBoundsInParent())&& checkcoin_list.get(4)==false)
                 {
                     gameCoin5.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(4,true);
                     coinLabel.setText(""+coins);
                 }
-                if(heroImage.getBoundsInParent().intersects(gameCoin6.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin6.getBoundsInParent())&& checkcoin_list.get(5)==false)
                 {
                     gameCoin6.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(5,true);
                     coinLabel.setText(""+coins);
                 }
-                if(heroImage.getBoundsInParent().intersects(gameCoin7.getBoundsInParent()))
+                if(heroImage.getBoundsInParent().intersects(gameCoin7.getBoundsInParent()) && checkcoin_list.get(6)==false)
                 {
                     gameCoin7.setOpacity(0);
                     coins++;
+                    checkcoin_list.set(6,true);
                     coinLabel.setText(""+coins);
                 }
                 if(heroImage.getBoundsInParent().intersects(orcImage1.getBoundsInParent()))
@@ -219,6 +227,15 @@ public class NewGameController implements Initializable
                     pointsLabel.setText("Points: "+(points));
                     //System.exit(0);
                 }
+                if(heroImage.getBoundsInParent().intersects(orcImage5.getBoundsInParent()))
+                {
+                    orcImage5.setLayoutX(orcImage5.getLayoutX()+10);
+                    heroImage.setLayoutX(heroImage.getLayoutX()-30);
+                    dynamicPane.setLayoutX(dynamicPane.getLayoutX()+30);
+                    points++;
+                    pointsLabel.setText("Points: "+(points));
+                    //System.exit(0);
+                }
             }
             else
             {
@@ -251,6 +268,7 @@ public class NewGameController implements Initializable
                 hero.setSpeedy(hero.getSpeedy()-0.01);
                 heroImage.setLayoutY(heroImage.getLayoutY()+hero.getSpeedy());
                 hero.setHeight(hero.getHeight()+hero.getSpeedy());
+
             }
             else
             {
@@ -320,7 +338,6 @@ public class NewGameController implements Initializable
             //System.out.println("In IF part: value of layout->"+orcImage1.getLayoutY());
             //System.out.println("height:"+orcImage1.getHeight());
             orc1.setSpeedy(orc1.getSpeedy()-0.01);
-            System.out.println("speed"+orc1.getSpeedy());
             orcImage1.setLayoutY(orcImage1.getLayoutY()+orc1.getSpeedy());
             orc1.setHeight(orc1.getHeight()+orc1.getSpeedy());
         }
@@ -375,7 +392,7 @@ public class NewGameController implements Initializable
         }
         if(orcImage1.getLayoutY()>400)
         {
-
+            mediaPlayer1.play();
         }
     }
 
@@ -415,7 +432,7 @@ public class NewGameController implements Initializable
         }
         if(orcImage2.getLayoutY()>400)
         {
-
+            mediaPlayer1.play();
         }
     }
 
@@ -451,7 +468,7 @@ public class NewGameController implements Initializable
 
         if(orcImage3.getLayoutY()>400)
         {
-
+           mediaPlayer1.play();
         }
     }
 
@@ -489,7 +506,7 @@ public class NewGameController implements Initializable
 
         if(orcImage4.getLayoutY()>400)
         {
-
+            mediaPlayer1.play();
         }
     }
     private void orc5_TranslateY()
@@ -514,18 +531,10 @@ public class NewGameController implements Initializable
 
         if(orcImage5.getLayoutY()>400)
         {
-
+            mediaPlayer1.play();
         }
     }
-//    private void CoinRotate(ImageView imageView, int rotatedAngle, Duration duration){
-//        rotateScoreCoin.setNode(imageView);
-//        rotateScoreCoin.setDuration(duration);
-//        rotateScoreCoin.setCycleCount(RotateTransition.INDEFINITE);
-//        rotateScoreCoin.setToAngle(rotatedAngle);
-//        rotateScoreCoin.setAxis(Rotate.Y_AXIS);
-//        rotateScoreCoin.setAutoReverse(false);
-//        rotateScoreCoin.play();
-//    }
+
 
     private void islandTranslateY(){
 
@@ -551,11 +560,27 @@ public class NewGameController implements Initializable
         steps=0;
         points=0;
         coins=0;
+        check_chest=false;
+        checkcoin_list=new ArrayList<>();
+        for(int i=0;i<7;i++)
+        {
+            checkcoin_list.add(false);
+        }
         mediaPlayer.setAutoPlay(true);
+        //mediaPlayer1.setAutoPlay(true);
         hero_timeline=new Timeline(new KeyFrame(Duration.millis(4/mode), event2->{
             try {
                 move_hero();
                 heroTranslateY();
+//                if((heroImage.getBoundsInParent().intersects(orcImage1.getBoundsInParent()) && (heroImage.getY()+heroImage.getFitHeight())<=orcImage1.getY())||
+//                        (heroImage.getBoundsInParent().intersects(orcImage2.getBoundsInParent())&& (heroImage.getY()+heroImage.getFitHeight())<=orcImage2.getY())||
+//                        (heroImage.getBoundsInParent().intersects(orcImage3.getBoundsInParent())&& (heroImage.getY()+heroImage.getFitHeight())<=orcImage3.getY())||
+//                        (heroImage.getBoundsInParent().intersects(orcImage4.getBoundsInParent())&& (heroImage.getY()+heroImage.getFitHeight())<=orcImage4.getY())||
+//                        (heroImage.getBoundsInParent().intersects(orcImage5.getBoundsInParent())&& (heroImage.getY()+heroImage.getFitHeight())<=orcImage5.getY())
+//                )
+//                {
+//                    System.exit(0);
+//                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -563,8 +588,7 @@ public class NewGameController implements Initializable
         ));
         hero_timeline.setCycleCount(Timeline.INDEFINITE);
         hero_timeline.setAutoReverse(false);
-        System.out.println("(initial)Dynamic pane layout: "+dynamicPane.getLayoutX());
-        System.out.println("(initial)hero layout: "+heroImage.getLayoutX());
+
         orc1_timeline=new Timeline(new KeyFrame(Duration.millis(3), event2->{
 
             orc1_TranslateY();
@@ -575,31 +599,17 @@ public class NewGameController implements Initializable
         }
         ));
 
-
+        RotateTransition rotateTransition =
+            new RotateTransition(Duration.millis(2000), scoreCoin);
+        rotateTransition.setByAngle(180f);
+        rotateTransition.setAxis(Rotate.Y_AXIS);
+        rotateTransition.setCycleCount(4);
+        rotateTransition.setAutoReverse(true);
+        rotateTransition.play();
         orc1_timeline.setCycleCount(Timeline.INDEFINITE);
         orc1_timeline.setAutoReverse(false);
-//        coin_timeline=new Timeline(new KeyFrame(Duration.millis(3), event2->{
-//
-//            CoinRotate(scoreCoin, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin1, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin2, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin3, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin4, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin5, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin6, 360, Duration.millis(1000));
-//            CoinRotate(gameCoin7, 360, Duration.millis(1000));
-//
-//        }));
-
-
-        orc1_timeline.setCycleCount(Timeline.INDEFINITE);
-        orc1_timeline.setAutoReverse(false);
-
-//
-
         islandTranslateY();
         timeline1.play();
-
         hero_timeline.play();
         orc1_timeline.play();
     }
@@ -609,16 +619,12 @@ public class NewGameController implements Initializable
     {
         timeline1.pause();
         orc1_timeline.pause();
-        rotateScoreCoin.pause();
-        rotateGameCoin1.pause();
         hero_timeline.pause();
     }
     @FXML
     private void resume() throws IOException
     {
-        timeline1.play();
-        rotateScoreCoin.play();
-        rotateGameCoin1.play();
+        timeline1.play();;
         hero_timeline.play();
         orc1_timeline.play();
     }

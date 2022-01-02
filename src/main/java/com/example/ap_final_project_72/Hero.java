@@ -83,7 +83,7 @@ public class Hero
         setMax_speed(12);
         setCheck(false);
         setSpeedy(-1);
-        setMax_height(8);
+        setMax_height(-9);
         setHeight(0);
     }
     public Hero(ImageView heroImage) {

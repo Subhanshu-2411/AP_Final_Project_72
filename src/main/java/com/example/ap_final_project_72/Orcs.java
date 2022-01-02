@@ -82,7 +82,7 @@ public class Orcs extends Obstacles
         setMax_speed(10);
         setCheck(false);
         setSpeedy(-1);
-        setMax_height(8);
+        setMax_height(-100);
         setHeight(0);
     }
 }
